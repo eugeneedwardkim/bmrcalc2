@@ -8,7 +8,7 @@ class Result extends React.Component {
   render() {
     return (
       <div>
-      {this.props.results}
+      {this.props.bmr}
       </div>
     );
   }
