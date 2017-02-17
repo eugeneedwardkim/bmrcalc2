@@ -8,13 +8,13 @@ class Form extends React.Component {
   submitForm = (e) => {
     e.preventDefault();
     let { form, age, height, weight, gender } = this.refs;
-    let data = {
-      age,
-      height,
-      weight,
-      gender,
+    let bmr;
+    if(gender === 'male'){
+      bmr = 66 + (6.2 * weight) + (12.7 * height) - (6.76 * age);
+    } else {
+      bmr = 655.1 + (4.35 * weight) + (4.7 * height) - (4.7 * age);
     }
-    this.props.calcCal(data);
+    this.props.addBmr(bmr);
     form.reset();
   }
   render() {
