@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Form from './Form.js';
+import Result from './Result.js';
 
 class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {};
+  }
+  getBmr = (bmr) => {
+    this.setState({bmr});
+  }
   render() {
-    constructor (props) {
-      super(props);
-      this.state = {};
-    }
-    getBmr = (bmr) => {
-      this.setState({bmr});
-    }
     return (
       <div className="App">
         <div className="App-header">
@@ -20,7 +21,7 @@ class App extends Component {
         </div>
         <p className="App-intro">
           Let's get your BMR calculated friendo!
-          <Form addBmr={getBmr} />
+          <Form addBmr={this.getBmr} />
           <Result bmr={this.state.bmr}/>
         </p>
       </div>
